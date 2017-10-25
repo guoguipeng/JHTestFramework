@@ -42,26 +42,7 @@ class TestUserManageSuite(unittest.TestCase):
         
         self.assertEqual('4', strNum)
         
-    def usermanage_testcase_2337(self):
-        driver = Base.Login(self.base_url, "admin", "888888")   
-        driver = Base.Menu(driver,'//*[@id="bs-example-navbar-collapse-1"]/ul[1]/li[5]/a')
-        
-        print("点击权限管理")
-        driver = Base.Menu(driver,'//*[@id="bbbNav"]/h1[4]/a')
-        time.sleep(3)
-        print("点击用户管理")
-        driver = Base.Menu(driver,'//*[@id="bbbNav"]/ul[4]/li[4]')
-        time.sleep(3)
-
-        driver.find_element_by_id('ser_username').send_keys('001')
-        driver.find_element_by_xpath('//*[@id="searchForm"]/button').click()
-        
-        
-        time.sleep(3)
-        strNum = driver.find_element_by_xpath('//*[@id="page-wrapper"]/div[3]/div[1]/div[1]/span/span').text
-        print(strNum)
-        
-        self.assertEqual('4', strNum)
+    
          
     def tearDown(self):
         self.driver.quit()
@@ -70,7 +51,6 @@ if __name__ == "__main__":
     #构造测试套件
     testsuit = unittest.TestSuite()
     testsuit.addTest(TestUserManageSuite("usermanage_testcase_2336"))
-    testsuit.addTest(TestUserManageSuite("usermanage_testcase_2337"))
     #定义测试报告存放路径
     filename = 'E:\\result.html'
     fp = open(filename,'wb')
